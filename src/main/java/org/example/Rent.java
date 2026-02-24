@@ -10,14 +10,14 @@ public class Rent {
     final String BLACK = "чёрный жемчуг";
     final String GREY = "серая безысходность";
     private WebDriver driver;
-    private By data = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
-    private By dataChoice = By.xpath(".//div[contains(@class, 'react-datepicker__day') and @tabindex = '0']");
-    private By term = By.xpath("//div[contains(@class, 'Dropdown-root')]");
-    private String color = ".//input[@id='%s']";
-    private By comment = By.xpath(".//input[@placeholder='Комментарий для курьера']");
-    private By orderButton = By.xpath(".//button[contains(@class, 'Button_Middle__1CSJM') and text()='Заказать']");
-    private String termList = ".//div[text()='%s']";
-    private By popUpButtonc = By.xpath(".//button[text()='Да']");
+    private final By data = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
+    private final By dataChoice = By.xpath(".//div[contains(@class, 'react-datepicker__day') and @tabindex = '0']");
+    private final By term = By.xpath("//div[contains(@class, 'Dropdown-root')]");
+    private final String color = ".//input[@id='%s']";
+    private final By comment = By.xpath(".//input[@placeholder='Комментарий для курьера']");
+    private final By orderButton = By.xpath(".//button[contains(@class, 'Button_Middle__1CSJM') and text()='Заказать']");
+    private final String termList = ".//div[text()='%s']";
+    private final By popUpButton = By.xpath(".//button[text()='Да']");
 
     public Rent(WebDriver driver) {
         this.driver = driver;
@@ -87,9 +87,9 @@ public class Rent {
     //Метод поиска всплывающего окна
     public void clickPopUp() {
         try {
-            WebElement element = driver.findElement(popUpButtonc);
+            WebElement element = driver.findElement(popUpButton);
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
-            driver.findElement(popUpButtonc).click();
+            driver.findElement(popUpButton).click();
         } catch (Exception e) {
             System.out.println("Ошибка подтверждения заказа");
         }
